@@ -1,15 +1,18 @@
+var cloudantConnection = require('./model/cloudantConnection');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var cloudant = require('cloudant');
 var config = require('./config.json');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var dashboard = require('./routes/dashboard');
+var policy = require('./routes/policy');
 var app = express();
+
+
 
 //----------------------------------------------------------------
 // view engine setup
@@ -34,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/dashboard', dashboard);
 app.use('/users', users);
+app.use('/policy',policy);
 
 //----------------------------------------------------------------
 // catch 404 and forward to error handler
