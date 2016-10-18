@@ -1,4 +1,4 @@
-var cloudantConnection = require('./model/cloudantConnection');
+var cloudantConnection = require('./model/net/cloudantConnection');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -9,9 +9,8 @@ var config = require('./config.json');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var dashboard = require('./routes/dashboard');
-var policy = require('./routes/policy');
+var policyRouter = require('./routes/policyRouter');
 var app = express();
-
 
 
 //----------------------------------------------------------------
@@ -33,11 +32,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //----------------------------------------------------------------
-//paths
+//routes
 app.use('/', routes);
 app.use('/dashboard', dashboard);
 app.use('/users', users);
-app.use('/policy',policy);
+app.use('/policy',policyRouter);
 
 //----------------------------------------------------------------
 // catch 404 and forward to error handler

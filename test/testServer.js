@@ -1,5 +1,5 @@
 var request = require('supertest');
-var policy = require('../model/object/policy');
+var policy = require('../model/net/object/policy');
 
 describe('loading express', function () {
   var server;
