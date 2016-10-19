@@ -6,11 +6,11 @@ var db = cloudantConnection.db.use('policy');
 cloudantConnection.insert = function(object, documentName){
  
     if(object == null || object == undefined){
-    	return throw new Error('object is null or undefined');
+    	throw new Error('object is null or undefined');
     }
 
     if(documentName == null || documentName == undefined){
-    	return throw new Error('documentName is null or undefined');
+    	throw new Error('documentName is null or undefined');
     }
 
     try {
@@ -18,7 +18,7 @@ cloudantConnection.insert = function(object, documentName){
         db.insert(object, documentName, function(err, body, header) {
 
             if (err) {
-        	    return throw err;
+        	    throw err;
             }
 
             return body;
@@ -26,7 +26,7 @@ cloudantConnection.insert = function(object, documentName){
         });
 
     } catch(e) {
-    	return throw e;
+    	throw e;
     }
 
 }

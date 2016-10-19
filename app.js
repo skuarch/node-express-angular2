@@ -1,3 +1,4 @@
+global.__base = __dirname + '/';
 var cloudantConnection = require('./model/net/cloudantConnection');
 var express = require('express');
 var path = require('path');

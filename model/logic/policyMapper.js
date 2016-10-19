@@ -1,5 +1,5 @@
 var policyMapper = {};
-var policy = require('../object/policyObject');
+var policy = require('../../model/object/policyObject');
 
 //---------------------------------------------------------------
 policyMapper.mapPolicy = function (request){    
@@ -8,7 +8,7 @@ policyMapper.mapPolicy = function (request){
         throw new Error('request is null or empty');
     }
     
-    if(request.body.title == null || request.body.title == undefined || request.body.title.length < 0){
+    if(request.body.title == null || request.body.title == undefined || request.body.title == ''){
     	throw new Error('title of policy is null or empty');
     }
 
